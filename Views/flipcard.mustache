@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Flip Card</title>
+</head>
+
+<body>
+  <form class="newcard" action="/card" method="post">
+    <input type="text" name="name" placeholder="Deck Name">
+    <input type="text" name="word" placeholder="word">
+    <textarea name="answer" rows="8" cols="80"></textarea>
+    <input type="submit" name="submit" value="Create Card">
+  </form>
+
+  {{#card}}
+    <form class="delete" action="/delete/{{id}}" method="post">
+      <p> Deck Name: {{name}}
+        <p>Term: <a href="/update/{{id}}">{{word}}</a></p>
+        <p> Answer: {{answer}} </p>
+        <input type="submit" name="delete" value="Delete Card">
+    </form>
+    </form>
+  {{/card}}
+
+</body>
+
+</html>
